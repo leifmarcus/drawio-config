@@ -1,5 +1,5 @@
-import { CustomPresetColor, Action, ConfigReducer } from './types';
+import { CustomPresetColors, Action, ConfigReducer } from './types';
 
-export const customPresetColorsReducer: ConfigReducer<CustomPresetColor, Action> = (state, action) => {
-    return [];
+export const customPresetColorsReducer: ConfigReducer<CustomPresetColors, Action> = (state, action) => {
+    return state;
 };

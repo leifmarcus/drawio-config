@@ -17,12 +17,12 @@ type CustomColorSchema = Array<null | {
 }>;
 type CustomColorSchemes = Array<CustomColorSchema>;
 
-export type CustomPresetColor = Array<string>;
+export type CustomPresetColors = Array<string>;
 export type CustomFonts = Array<string>;
 
 export type Configuration = {
     customFonts: CustomFonts;
-    customPresetColors: CustomPresetColor;
+    customPresetColors: CustomPresetColors;
     defaultVertexStyle: DefaultStyle;
     defaultEdgeStyle: DefaultStyle;
     customColorSchemes: CustomColorSchemes;
@@ -36,8 +36,8 @@ export type Action = {
 export type ConfigReducer<S, A> = (prevState: S, action: A) => S;
 
 export type ConfigStore<S> = Readonly<{
-    getState?: () => S;
-    dispatch?: Dispatch<Action>;
+    getState: () => S;
+    dispatch: Dispatch<Action>;
 }>;
 
 export type UseConfigStore<S> = () => ConfigStore<S>;

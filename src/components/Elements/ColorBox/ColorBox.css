@@ -1,0 +1,21 @@
+.ColorBox {
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width: calc( 100% / 12 - 0.25rem );
+    margin: 0.125rem;
+    position: relative;
+}
+
+.ColorBox:before {
+    width: 0;
+    content: '';
+    padding-bottom: 100%;
+    display: inline-block;
+}
+
+.ColorBox--color {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}

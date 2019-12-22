@@ -1,12 +1,15 @@
-import React, { useReducer, Context, createContext } from 'react';
+import React, { useReducer, Context, createContext, Dispatch } from 'react';
 import './App.css';
 import { Header } from './components/Elements/Header';
 import { configReducer, initialConfig } from './state';
-import { Configuration, UseConfigStore, ConfigStore } from './state/types';
+import { Configuration, UseConfigStore, ConfigStore, Action } from './state/types';
 import { CustomColors } from './components/CustomColors';
 import { Content } from './components/Elements/Content';
 
-export const ConfigurationContext: Context<ConfigStore<Configuration>> = createContext({});
+export const ConfigurationContext: Context<ConfigStore<Configuration>> = createContext({
+    getState: () => initialConfig,
+    dispatch: (() => undefined) as Dispatch<Action>,
+});
 
 const useConfigStore: UseConfigStore<Configuration> = () => {
     const [config, dispatch] = useReducer(configReducer, initialConfig);

@@ -1,26 +1,65 @@
-import React, { useContext } from 'react';
+import React, { useContext, ReactNode, MouseEventHandler } from 'react';
 import './CustomColors.css';
-import { Headline } from '../Elements/Headline';
 import { ConfigurationContext } from '../../App';
-import { Configuration } from '../../state/types';
+import { CustomPresetColors } from '../../state/types';
 import { ColorBox } from '../Elements/ColorBox';
+import { Box } from '../Elements/Box';
+import { Button } from '../Elements/Button';
 
-const useCustomColors = (): Array<Configuration['customPresetColors']> => {
+type UpdateColor = (index: number) => (color: string) => void;
+type DeleteColor = (index: number) => () => void;
+
+const useCustomColors = (): [CustomPresetColors, UpdateColor, DeleteColor] => {
     const store = useContext(ConfigurationContext);
     const state = store.getState();
-    return [state.customPresetColors];
+
+    const updateColor: UpdateColor = index => (color): void => {
+        store.dispatch({
+            type: 'UPDATE_CUSTOM_COLOR',
+            payload: {
+                index: index,
+                color: color,
+            },
+        });
+    };
+
+    const deleteColor: DeleteColor = index => () => {
+        store.dispatch({
+            type: 'DELETE_CUSTOM_COLOR',
+            payload: {
+                index: index,
+            },
+        });
+    };
+
+    return [state.customPresetColors, updateColor, deleteColor];
 };
 
 export const CustomColors: React.FC = () => {
-    const [colors] = useCustomColors();
+    const [colors, updateColor, deleteColor] = useCustomColors();
+
+    const handleAddNewUpdate: MouseEventHandler = () => {
+        const newIndex = colors.length;
+        updateColor(newIndex)('ffffff');
+    };
+
+    const addNewButton: ReactNode = <Button onClick={handleAddNewUpdate}>add new color</Button>;
+
     return (
-        <div className="CustomColors">
-            <Headline type="h2">Custom Colors</Headline>
+        <Box title="Custom Preset Colors" footer={addNewButton}>
             <div className="CustomColors--palette">
                 {colors.map((color, i) => {
-                    return <ColorBox key={`color-${i}`} color={color} index={i} />;
+                    return (
+                        <ColorBox
+                            key={`color-${i}`}
+                            className="CustomColors--item"
+                            color={color}
+                            onChange={updateColor(i)}
+                            onDelete={deleteColor(i)}
+                        />
+                    );
                 })}
             </div>
-        </div>
+        </Box>
     );
 };

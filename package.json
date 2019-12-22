@@ -7,10 +7,14 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^24.0.0",
+    "@types/lodash": "^4.14.149",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
+    "@types/react-color": "^3.0.1",
     "@types/react-dom": "^16.9.0",
+    "lodash": "^4.17.15",
     "react": "^16.12.0",
+    "react-color": "^2.17.3",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
     "typescript": "~3.7.2"
@@ -42,7 +46,7 @@
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react":"^7.17.0",
+    "eslint-plugin-react": "^7.17.0",
     "prettier": "^1.19.1"
   }
 }

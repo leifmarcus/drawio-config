@@ -1,21 +1,83 @@
 .ColorBox {
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     box-sizing: border-box;
-    width: calc( 100% / 12 - 0.25rem );
-    margin: 0.125rem;
     position: relative;
 }
 
-.ColorBox:before {
-    width: 0;
-    content: '';
-    padding-bottom: 100%;
-    display: inline-block;
+.ColorBox--actions {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    transition: 100ms ease-in-out 150ms;
+}
+
+.ColorBox--delete {
+    background: rgba(255,255,255,1) url(/icon-delete.svg) no-repeat;
+    background-size: cover;
+    font-size: 3rem;
+    line-height: 3rem;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.25rem;
+    opacity: 0;
+}
+
+.ColorBox:hover .ColorBox--delete {
+    opacity: 0.5;
+}
+
+.ColorBox:hover .ColorBox--delete:hover {
+    opacity: 1;
+}
+
+.ColorBox:hover .ColorBox--delete:active {
+    opacity: 0.7;
+}
+
+.ColorBox--delete:hover {
+    color: #000;
+}
+.ColorBox--delete:active {
+    opacity: 0.7;
 }
 
 .ColorBox--color {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    border-radius: 0.5ex;
+    cursor: pointer;
+    width: 100%;
+    padding-bottom: 100%;
+}
+
+.ColorBox--colorInput {
+    border: 0;
+    outline: 0;
+    color:inherit;
+    background-color: transparent;
+    font-family: Fira Code, monospace;
+    font-size: 1.5rem;
+}
+
+.ColorBox--cover {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+}
+
+.ColorBox--popover {
+    position:absolute;
+    z-index: 2;
+}
+
+@media screen and (max-width: 1024px) {
+    .ColorBox {
+        height: 5rem;
+    }
+    .ColorBox:before {
+        padding-bottom: 0;
+    }
 }

@@ -1,2 +1,32 @@
 .App {
 }
+
+.App--layout {
+    display: flex;
+    flex-direction: row;
+}
+
+.App--main {
+    flex: 0 0 75%;
+}
+
+.App--side {
+    flex: 0 0 25%;
+    margin-left: 3rem;
+}
+
+@media screen and (max-width: 1280px) {
+    .App--layout {
+        flex-direction: column;
+    }
+
+    .App--main {
+        flex: 0 0 75%;
+    }
+
+    .App--side {
+        flex: 0 0 25%;
+        margin-left: 0;
+        margin-top: 3rem;
+    }
+}

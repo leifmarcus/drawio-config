@@ -1,14 +1,21 @@
 .Header {
     height: 9rem;
-    background: #62A5B4;
     display: flex;
     align-items: center;
-    color: rgba(255, 255, 255, 0.9);
-    padding: 0 4rem;
+    padding: 2rem 4rem;
+    background-color: #fbfbfb;
+    border-bottom: 1px solid #dadce0;
+    color: #000000;
 }
 
 .Header h1 {
     font-size: 3rem;
     line-height: 4rem;
     letter-spacing: 0.1ex;
+}
+
+.Header--logo {
+    margin-right: 2rem;
+    width: 6rem;
+    height: 6rem;
 }

@@ -28,9 +28,18 @@ export type Configuration = {
     customColorSchemes: CustomColorSchemes;
 };
 
+type UpdateColorPayload = {
+    index: number;
+    color: string;
+};
+
+type DeleteColorPayload = {
+    index: number;
+};
+
 export type Action = {
     type: string;
-    payload: string | object | [];
+    payload: UpdateColorPayload | DeleteColorPayload;
 };
 
 export type ConfigReducer<S, A> = (prevState: S, action: A) => S;

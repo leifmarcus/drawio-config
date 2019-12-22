@@ -5,5 +5,19 @@
 .CustomColors--palette {
     display: flex;
     flex-wrap: wrap;
-    margin: -0.125rem;
+    margin: -0.5rem;
+}
+
+.CustomColors--item {
+    width: calc( 100% / 12 - 1rem );
+    margin: 0.5rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .CustomColors--palette {
+        display: block;
+    }
+    .CustomColors--item {
+        width: auto;
+    }
 }

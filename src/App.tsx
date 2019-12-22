@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useReducer, Context, createContext } from 'react';
 import './App.css';
+import { Header } from './components/Elements/Header';
+import { configReducer, initialConfig } from './state';
+import { Configuration, UseConfigStore, ConfigStore } from './state/types';
+import { CustomColors } from './components/CustomColors';
+import { Content } from './components/Elements/Content';
+
+export const ConfigurationContext: Context<ConfigStore<Configuration>> = createContext({});
+
+const useConfigStore: UseConfigStore<Configuration> = () => {
+    const [config, dispatch] = useReducer(configReducer, initialConfig);
+
+    const getState = (): Configuration => config;
+
+    return {
+        getState,
+        dispatch,
+    };
+};
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    const configStore = useConfigStore();
+
+    return (
+        <ConfigurationContext.Provider value={configStore}>
+            <div className="App">
+                <Header />
+                <Content>
+                    <CustomColors />
+                </Content>
+            </div>
+        </ConfigurationContext.Provider>
+    );
+};
 
 export default App;

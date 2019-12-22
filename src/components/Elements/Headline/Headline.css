@@ -1,0 +1,14 @@
+.Headline {
+    font-weight: bold;
+    letter-spacing: 0.1ex;
+}
+
+.Headline-h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+}
+
+.Headline-h2 {
+    font-size: 3rem;
+    line-height: 3rem;
+}

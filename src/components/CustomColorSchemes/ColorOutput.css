@@ -1,0 +1,21 @@
+.ColorOutput {
+    display: flex;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.ColorOutput--colorBox {
+    width: 3rem;
+    height: 3rem;
+}
+
+.ColorOutput--title:hover {
+    color: #CC0000;
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
+.ColorOutput--color {
+    margin-right: .5rem;
+}

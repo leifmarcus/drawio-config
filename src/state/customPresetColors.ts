@@ -18,7 +18,7 @@ export const customPresetColorsReducer: ConfigReducer<CustomPresetColors, Action
 
             const index = get(action, 'payload.index');
 
-            return newState.filter((color, i) => {
+            return newState.filter((_unused_, i) => {
                 return i !== index;
             });
         }

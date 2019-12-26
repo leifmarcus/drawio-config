@@ -1,0 +1,40 @@
+.Schema {
+    width: calc( 25% - 2rem );
+    background-color: #ffffff;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+}
+
+.Schema--reset {
+    border: 1px dashed #CCC;
+    color: #ccc;
+    align-items: center;
+    justify-content: center;
+}
+
+.Schema--reset-title {
+    font-size: 2rem;
+}
+
+.Schema--colors {
+    padding: 0.75rem 0.5rem;
+    position: relative;
+    flex: 1 1 50%;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.Schema--delete {
+    position: absolute;
+    right: 0.5rem;
+    top: 0;
+    cursor: pointer;
+}
+
+.Schema--delete:hover {
+    color: #E00;
+}

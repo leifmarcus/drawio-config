@@ -51,6 +51,11 @@
     padding-bottom: 100%;
 }
 
+.ColorBox--color--isNone {
+    background: #ffffff url(/color-none.svg) no-repeat;
+    background-size: contain;
+}
+
 .ColorBox--colorInput {
     border: 0;
     outline: 0;
@@ -73,7 +78,7 @@
     z-index: 2;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
     .ColorBox {
         height: 5rem;
     }

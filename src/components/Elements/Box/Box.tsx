@@ -4,19 +4,23 @@ import { Headline } from '../Headline';
 
 type Props = {
     title?: ReactNode;
+    description?: ReactNode;
     footer?: ReactNode;
 };
 
-export const Box: React.FC<Props> = ({ children, title, footer }) => {
-    const showHead = !!title;
+export const Box: React.FC<Props> = ({ children, title, footer, description }) => {
+    const showHead = !!title || !!description;
 
     return (
         <div className="Box">
             {showHead && (
                 <div className="Box--head">
-                    <Headline type="h2" className="Box--title">
-                        {title}
-                    </Headline>
+                    {title && (
+                        <Headline type="h2" className="Box--title">
+                            {title}
+                        </Headline>
+                    )}
+                    {description && <div className="Box--description">{description}</div>}
                 </div>
             )}
             <div className="Box--content">{children}</div>

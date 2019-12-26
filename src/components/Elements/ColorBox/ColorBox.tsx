@@ -1,7 +1,7 @@
 import React, { useState, ChangeEventHandler, useEffect } from 'react';
 import './ColorBox.css';
 import { joinClassNames } from '../../../utils/helpers';
-import { CompactPicker, ColorChangeHandler } from 'react-color';
+import { SketchPicker, ColorChangeHandler } from 'react-color';
 import { ColorBoxProps, OnChange } from './types';
 
 const useColorInput = (initialColor: string, onChange: OnChange): [string, ColorChangeHandler] => {
@@ -22,7 +22,15 @@ const useColorInput = (initialColor: string, onChange: OnChange): [string, Color
 
 const INITIAL_PICKER_STATE = false;
 
-export const ColorBox: React.FC<ColorBoxProps> = ({ color, onChange, className, onDelete }) => {
+export const ColorBox: React.FC<ColorBoxProps> = ({
+    showDelete,
+    presetColors,
+    color,
+    onChange,
+    className,
+    onDelete,
+}) => {
+    // const usedColor = color === 'none' ? 'ffffff' : color;
     const [stateColor, handleColorChange] = useColorInput(color, onChange);
     const [isOpen, setIsOpen] = useState(INITIAL_PICKER_STATE);
     const isWhite = stateColor && (stateColor.toLowerCase() === 'fff' || stateColor.toLowerCase() === 'ffffff');
@@ -32,18 +40,28 @@ export const ColorBox: React.FC<ColorBoxProps> = ({ color, onChange, className, 
         border: isWhite ? '1px solid #dadce0' : 'none',
     };
 
+    const isNone = stateColor === 'none';
+
+    const colorClassNames = joinClassNames('ColorBox--color', isNone && 'ColorBox--color--isNone');
+
     return (
         <div className={joinClassNames('ColorBox', className)} style={style}>
-            <div className="ColorBox--actions">
-                <button className="ColorBox--delete" onClick={() => onDelete()} />
-            </div>
-            <div className="ColorBox--color" onClick={() => setIsOpen(!isOpen)}></div>
+            {showDelete && (
+                <div className="ColorBox--actions">
+                    <button className="ColorBox--delete" onClick={(): void => onDelete()} />
+                </div>
+            )}
+            <div className={colorClassNames} onClick={(): void => setIsOpen(!isOpen)}></div>
             {isOpen && (
                 <div className="ColorBox--popover">
-                    <div className="ColorBox--cover" onClick={() => setIsOpen(INITIAL_PICKER_STATE)} />
-                    <CompactPicker color={stateColor} onChange={handleColorChange} />
+                    <div className="ColorBox--cover" onClick={(): void => setIsOpen(INITIAL_PICKER_STATE)} />
+                    <SketchPicker presetColors={presetColors} color={stateColor} onChange={handleColorChange} />
                 </div>
             )}
         </div>
     );
+};
+
+ColorBox.defaultProps = {
+    showDelete: true,
 };

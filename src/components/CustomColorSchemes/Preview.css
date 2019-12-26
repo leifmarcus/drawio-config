@@ -1,0 +1,11 @@
+.Preview {
+    font-size: 2rem;
+    width: 50%;
+    display: flex;
+    flex: 0 0 50%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+}

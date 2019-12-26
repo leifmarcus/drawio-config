@@ -1,0 +1,30 @@
+.CustomColorSchemes--delete {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-align: right;
+    cursor: pointer;
+}
+
+.CustomColorSchemes--group {
+    background: rgb(245,245,245);
+    border-radius: 0.5rem;
+    padding: 2rem 0 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.CustomColorSchemes--schema {
+    background-color: #ffffff;
+}
+
+.CustomColorSchemes--new {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    background: #ffffff;
+    margin-bottom: 2rem;
+    width: calc( 25% - 2rem );
+    justify-content: center;
+}

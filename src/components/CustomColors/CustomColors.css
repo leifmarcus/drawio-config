@@ -13,7 +13,7 @@
     margin: 0.5rem;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
     .CustomColors--palette {
         display: block;
     }

@@ -1,0 +1,1 @@
+export { CustomFonts } from './CustomFonts';

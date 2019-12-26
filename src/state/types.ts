@@ -9,13 +9,14 @@ type DefaultStyle = {
     rounded?: '0' | '1';
     strokeWidth?: number;
 };
-type CustomColorSchema = Array<null | {
+
+export type CustomColorSchema = {
     stroke?: string;
     font?: string;
     fill?: string;
     gradient?: string;
-}>;
-type CustomColorSchemes = Array<CustomColorSchema>;
+};
+export type CustomColorSchemes = Array<Array<CustomColorSchema | null>>;
 
 export type CustomPresetColors = Array<string>;
 export type CustomFonts = Array<string>;
@@ -37,9 +38,19 @@ type DeleteColorPayload = {
     index: number;
 };
 
+type DeleteSchemaGroup = {
+    groupIndex: number;
+};
+
+type UpdateColorSchema = {
+    groupIndex: number;
+    schemaIndex: number;
+    schema: CustomColorSchema;
+};
+
 export type Action = {
     type: string;
-    payload: UpdateColorPayload | DeleteColorPayload;
+    payload?: UpdateColorPayload | DeleteColorPayload | UpdateColorSchema | DeleteSchemaGroup;
 };
 
 export type ConfigReducer<S, A> = (prevState: S, action: A) => S;

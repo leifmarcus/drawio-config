@@ -6,6 +6,8 @@ import { Configuration, UseConfigStore, ConfigStore, Action } from './state/type
 import { CustomColors } from './components/CustomColors';
 import { Content } from './components/Elements/Content';
 import { ConfigOutput } from './components/ConfigOutput';
+import { CustomFonts } from './components/CustomFonts';
+import { CustomColorSchemes } from './components/CustomColorSchemes';
 
 export const ConfigurationContext: Context<ConfigStore<Configuration>> = createContext({
     getState: () => getInitialConfig(),
@@ -38,6 +40,8 @@ const App: React.FC = () => {
                     <div className="App--layout">
                         <div className="App--main">
                             <CustomColors />
+                            <CustomColorSchemes />
+                            <CustomFonts />
                         </div>
                         <div className="App--side">
                             <ConfigOutput />

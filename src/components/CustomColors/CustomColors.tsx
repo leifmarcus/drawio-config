@@ -44,9 +44,11 @@ export const CustomColors: React.FC = () => {
     };
 
     const addNewButton: ReactNode = <Button onClick={handleAddNewUpdate}>add new color</Button>;
+    const description: ReactNode =
+        'The following colors will be shown in the color overlay in draw.io. Click on a color box to set a new color or click the trashbin to delete a color from the list.';
 
     return (
-        <Box title="Custom Preset Colors" footer={addNewButton}>
+        <Box title="Custom Preset Colors" footer={addNewButton} description={description}>
             <div className="CustomColors--palette">
                 {colors.map((color, i) => {
                     return (

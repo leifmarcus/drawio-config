@@ -1,14 +1,15 @@
 import { customPresetColorsReducer } from './customPresetColors';
 import { Configuration, Action, ConfigReducer } from './types';
 import { customFontsReducer } from './customFonts';
+import { customColorSchemesReducer } from './customColorSchemes';
 
 export const configReducer: ConfigReducer<Configuration, Action> = (state, action) => {
     return {
         customPresetColors: customPresetColorsReducer(state.customPresetColors, action),
         customFonts: customFontsReducer(state.customFonts, action),
+        customColorSchemes: customColorSchemesReducer(state.customColorSchemes, action),
         defaultVertexStyle: {},
         defaultEdgeStyle: {},
-        customColorSchemes: [],
     };
 };
 
@@ -40,10 +41,50 @@ export const initialConfig: Configuration = {
         'F19C99',
         'EA6B66',
     ],
-    customFonts: [],
+    customFonts: ['Segoe UI', 'Segoe Script'],
+    customColorSchemes: [
+        [
+            null,
+            {
+                fill: '#e6d0de',
+                gradient: 'none',
+                stroke: '#cda2be',
+                font: '#b5739d',
+            },
+            {
+                fill: '#d4e1f5',
+                gradient: 'none',
+                stroke: '#a9c4eb',
+                font: '#7ea6e0',
+            },
+            {
+                fill: '#d5e8d4',
+                gradient: 'none',
+                stroke: '#9ac7bf',
+                font: '#67ab9f',
+            },
+            {
+                fill: '#e1d5e7',
+                gradient: 'none',
+                stroke: '#c3abd0',
+                font: '#a680b8',
+            },
+            {
+                fill: '#fff4c3',
+                gradient: 'none',
+                stroke: '#ffce9f',
+                font: '#ffb570',
+            },
+            {
+                fill: '#d5e8d4',
+                gradient: 'none',
+                stroke: '#b9e0a5',
+                font: '#70a057',
+            },
+        ],
+    ],
     defaultVertexStyle: {},
     defaultEdgeStyle: {},
-    customColorSchemes: [],
 };
 
 export const getInitialConfig = (): Configuration => {

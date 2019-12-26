@@ -1,4 +1,4 @@
-import React, { useState, ChangeEventHandler, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ColorBox.css';
 import { joinClassNames } from '../../../utils/helpers';
 import { SketchPicker, ColorChangeHandler } from 'react-color';

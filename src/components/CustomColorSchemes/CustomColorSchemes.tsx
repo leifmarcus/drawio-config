@@ -82,8 +82,14 @@ export const CustomColorSchemesComponent: React.FC<CustomColorSchemesProps> = ({
         </div>
     );
 
-    const description: ReactNode =
-        'Color schemes are shown in draw.io inside the editor on the right top. Here you are able to add custom presets.';
+    const description: ReactNode = (
+        <div>
+            Color schemes will be shown in draw.io on the right top in the preset panel. Here you are able to add custom
+            presets.
+            <br />
+            Presets can be organized in different slides.
+        </div>
+    );
 
     return (
         <Box title="Custom Color Schemes" footer={addNewGroup} description={description}>
@@ -91,7 +97,7 @@ export const CustomColorSchemesComponent: React.FC<CustomColorSchemesProps> = ({
                 {colorSchemes.map((group, groupIndex) => {
                     return [
                         <div key="delete" className="CustomColorSchemes--delete">
-                            <a onClick={deleteGroup(groupIndex)}>delete Group</a>
+                            <a onClick={deleteGroup(groupIndex)}>delete Slide</a>
                         </div>,
                         <div className="CustomColorSchemes--group" key={`group-${groupIndex}`}>
                             {group.map((colorSchema, schemaIndex) => {

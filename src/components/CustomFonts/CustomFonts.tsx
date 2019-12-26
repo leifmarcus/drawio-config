@@ -1,12 +1,12 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import './CustomFonts.css';
 import { Box } from '../Elements/Box';
 
-type Props = {};
+type CustomFontsProps = {};
 
-export const CustomFonts: React.FC<Props> = ({ children }) => {
+export const CustomFonts: React.FC<CustomFontsProps> = ({}) => {
     return (
-        <Box title="Custom Fonts" footer={''}>
+        <Box title="Custom Fonts" description="Work in progress …" footer={''}>
             <div className="CustomFonts"></div>;
         </Box>
     );

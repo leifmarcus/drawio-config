@@ -84,10 +84,9 @@ export const CustomColorSchemesComponent: React.FC<CustomColorSchemesProps> = ({
 
     const description: ReactNode = (
         <div>
-            Color schemes will be shown in draw.io on the right top in the preset panel. Here you are able to add custom
-            presets.
-            <br />
-            Presets can be organized in different slides.
+            Color schemes will be shown in draw.io on the right top in the preset panel. Here you are able to configure
+            custom presets. Presets can be organized in different slides. Click the color boxes next to the preview to
+            change the color. By clicking the label, the color get’s removed
         </div>
     );
 

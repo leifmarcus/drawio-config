@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, RefObject, useRef, useState } from 'react';
+import React, { useContext, RefObject, useRef, useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { github } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import './ConfigOutput.css';
@@ -60,10 +60,12 @@ const useClipboard = (codeRef: RefObject<HTMLDivElement>): [boolean, CopyClickHa
     return [isCopied, handleCopyClick];
 };
 
-export const ConfigOutput: React.FC<Props> = ({ children }) => {
+export const ConfigOutput: React.FC<Props> = () => {
     const codeRef = useRef(null);
+
     const [isCopied, handleCopyClick] = useClipboard(codeRef);
     const [drawioConfig] = useDrawioConfig();
+
     return (
         <div className="ConfigOutput">
             <Box title="Configuration">
@@ -75,8 +77,9 @@ export const ConfigOutput: React.FC<Props> = ({ children }) => {
                 >
                     {drawioConfig}
                 </SyntaxHighlighter>
-                {/* <pre>{JSON.stringify(currState, null, 2)}</pre> */}
+
                 <Button onClick={handleCopyClick}>Copy To Clipboard</Button>
+
                 {isCopied && <div className="ConfigOutput--copy-hint">✔︎ Copied to clipboard</div>}
             </Box>
         </div>

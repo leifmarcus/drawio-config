@@ -46,9 +46,8 @@ export const CustomColors: React.FC = () => {
     const addNewButton: ReactNode = <Button onClick={handleAddNewUpdate}>add new color</Button>;
     const description: ReactNode = (
         <div>
-            The following colors will be shown in the color overlay in draw.io.
-            <br />
-            Click on a color box to set a new color or click the trashbin to delete a color from the list.
+            The following colors will be shown in the color picker in draw.io. Click on a color box to set a new color
+            or click the trash bin to delete a color from the list.
         </div>
     );
 

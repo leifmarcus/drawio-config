@@ -15,7 +15,11 @@ type DeleteHandler = () => void;
 const ResetSchema: React.FC<{}> = () => {
     return (
         <div className="Schema Schema--reset">
-            <div className="Schema--reset-title">Reset Schema</div>
+            <div className="Schema--reset-title">
+                Reset Schema
+                <br />
+                (Will be shown in each slide)
+            </div>
         </div>
     );
 };

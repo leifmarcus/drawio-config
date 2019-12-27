@@ -1,0 +1,14 @@
+.ConfigOutput {
+    height: 100%;
+}
+
+.ConfigOutput--code-box {
+    max-height: calc(100vh - 38rem);
+    margin: 2rem 0;
+}
+
+.ConfigOutput--copy-hint {
+    display: inline-block;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+}

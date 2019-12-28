@@ -1,0 +1,20 @@
+.FontBox {
+    margin-bottom: 3rem;
+}
+
+.Font-Box--field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.Font-Box--label {
+    flex: 0 0 14rem;
+    font-size: 1.75rem;
+    line-height: 2rem;
+    margin-right: 1rem;
+}
+
+.FontBox--input--is-disabled {
+    color: #999;
+}

@@ -25,6 +25,15 @@ export type CustomFont = {
 };
 
 export type Configuration = {
+    customFonts: Array<string>;
+    customPresetColors: CustomPresetColors;
+    defaultVertexStyle: DefaultStyle;
+    defaultEdgeStyle: DefaultStyle;
+    customColorSchemes: CustomColorSchemes;
+    fontCss: string;
+};
+
+export type AppState = {
     customFonts: Array<CustomFont>;
     customPresetColors: CustomPresetColors;
     defaultVertexStyle: DefaultStyle;
@@ -51,9 +60,13 @@ type UpdateColorSchema = {
     schema: CustomColorSchema;
 };
 
+type UpdateCustomFont = CustomFont & {
+    index: number;
+};
+
 export type Action = {
     type: string;
-    payload?: UpdateColorPayload | DeleteColorPayload | UpdateColorSchema | DeleteSchemaGroup;
+    payload?: UpdateColorPayload | DeleteColorPayload | UpdateColorSchema | DeleteSchemaGroup | UpdateCustomFont;
 };
 
 export type ConfigReducer<S, A> = (prevState: S, action: A) => S;

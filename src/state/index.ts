@@ -1,9 +1,9 @@
 import { customPresetColorsReducer } from './customPresetColors';
-import { Configuration, Action, ConfigReducer } from './types';
+import { Action, ConfigReducer, AppState } from './types';
 import { customFontsReducer } from './customFonts';
 import { customColorSchemesReducer } from './customColorSchemes';
 
-export const configReducer: ConfigReducer<Configuration, Action> = (state, action) => {
+export const configReducer: ConfigReducer<AppState, Action> = (state, action) => {
     return {
         customPresetColors: customPresetColorsReducer(state.customPresetColors, action),
         customFonts: customFontsReducer(state.customFonts, action),
@@ -13,7 +13,7 @@ export const configReducer: ConfigReducer<Configuration, Action> = (state, actio
     };
 };
 
-export const initialConfig: Configuration = {
+export const initialConfig: AppState = {
     customPresetColors: [
         'E6D0DE',
         'CDA2BE',
@@ -137,7 +137,7 @@ export const initialConfig: Configuration = {
     defaultEdgeStyle: {},
 };
 
-export const getInitialConfig = (): Configuration => {
+export const getInitialConfig = (): AppState => {
     const savedConfig = localStorage.getItem('drawioconfig');
     if (!savedConfig) {
         return initialConfig;

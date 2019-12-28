@@ -2,22 +2,22 @@ import React, { useReducer, Context, createContext, Dispatch, useEffect } from '
 import './App.css';
 import { Header } from './components/Elements/Header';
 import { configReducer, getInitialConfig } from './state';
-import { Configuration, UseConfigStore, ConfigStore, Action } from './state/types';
+import { UseConfigStore, ConfigStore, Action, AppState } from './state/types';
 import { CustomColors } from './components/CustomColors';
 import { Content } from './components/Elements/Content';
 import { ConfigOutput } from './components/ConfigOutput';
 import { CustomFonts } from './components/CustomFonts';
 import { CustomColorSchemes } from './components/CustomColorSchemes';
 
-export const ConfigurationContext: Context<ConfigStore<Configuration>> = createContext({
+export const ConfigurationContext: Context<ConfigStore<AppState>> = createContext({
     getState: () => getInitialConfig(),
     dispatch: (() => undefined) as Dispatch<Action>,
 });
 
-const useConfigStore: UseConfigStore<Configuration> = () => {
+const useConfigStore: UseConfigStore<AppState> = () => {
     const [config, dispatch] = useReducer(configReducer, getInitialConfig());
 
-    const getState = (): Configuration => config;
+    const getState = (): AppState => config;
 
     useEffect(() => {
         localStorage.setItem('drawioconfig', JSON.stringify(config, null, 2));

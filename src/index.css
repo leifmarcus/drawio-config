@@ -23,3 +23,14 @@ h1,h2,h3,h4,h5 {
     margin: 0;
     font-weight: 300;
 }
+
+input[type=text] {
+    font-size: 12px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 1px solid rgb(213, 213, 213);
+    border-radius: 4px;
+    width: 100%;
+    outline: none;
+    padding: 0.75rem;
+}

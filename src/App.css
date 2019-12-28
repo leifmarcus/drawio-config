@@ -13,6 +13,7 @@
 .App--side {
     flex: 0 0 25%;
     margin-left: 3rem;
+    width: 25%;
 }
 
 @media screen and (max-width: 1280px) {

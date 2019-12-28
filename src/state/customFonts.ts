@@ -1,5 +1,34 @@
 import { CustomFont, Action, ConfigReducer } from './types';
+import get from 'lodash/get';
 
 export const customFontsReducer: ConfigReducer<Array<CustomFont>, Action> = (state, action) => {
-    return state;
+    switch (action.type) {
+        case 'UPDATE_CUSTOM_FONT': {
+            const index = get(action, 'payload.index');
+            const name = get(action, 'payload.name');
+            const url = get(action, 'payload.url');
+
+            return state.map((font, i) => {
+                if (index !== i) {
+                    return font;
+                }
+
+                return {
+                    name,
+                    url,
+                };
+            });
+        }
+        case 'DELETE_CUSTOM_FONT': {
+            const newState = [...state];
+
+            const index = get(action, 'payload.index');
+
+            return newState.filter((_unused_, i) => {
+                return i !== index;
+            });
+        }
+        default:
+            return state;
+    }
 };

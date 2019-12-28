@@ -5,6 +5,7 @@ import './ConfigOutput.css';
 import { Box } from '../Elements/Box';
 import { ConfigurationContext } from '../../App';
 import { Button } from '../Elements/Button';
+import { convertToDrawIoConfig } from './helper';
 
 type Props = {};
 type CopyClickHandler = () => void;
@@ -13,7 +14,7 @@ const useDrawioConfig = (): [string] => {
     const store = useContext(ConfigurationContext);
     const currState = store.getState();
 
-    const jsonString = JSON.stringify(currState, null, 2);
+    const jsonString = convertToDrawIoConfig(currState);
 
     return [jsonString];
 };

@@ -19,10 +19,13 @@ export type CustomColorSchema = {
 export type CustomColorSchemes = Array<Array<CustomColorSchema | null>>;
 
 export type CustomPresetColors = Array<string>;
-export type CustomFonts = Array<string>;
+export type CustomFont = {
+    name: string;
+    url?: string;
+};
 
 export type Configuration = {
-    customFonts: CustomFonts;
+    customFonts: Array<CustomFont>;
     customPresetColors: CustomPresetColors;
     defaultVertexStyle: DefaultStyle;
     defaultEdgeStyle: DefaultStyle;

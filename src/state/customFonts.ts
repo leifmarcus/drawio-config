@@ -1,5 +1,5 @@
-import { CustomFonts, Action, ConfigReducer } from './types';
+import { CustomFont, Action, ConfigReducer } from './types';
 
-export const customFontsReducer: ConfigReducer<CustomFonts, Action> = (state, action) => {
+export const customFontsReducer: ConfigReducer<Array<CustomFont>, Action> = (state, action) => {
     return state;
 };

@@ -41,15 +41,26 @@ export const initialConfig: Configuration = {
         'F19C99',
         'EA6B66',
     ],
-    customFonts: ['Segoe UI', 'Segoe Script'],
+    customFonts: [
+        {
+            name: 'Segoe UI',
+        },
+        {
+            name: 'Segoe Script',
+        },
+        {
+            name: 'Open Sans',
+            url: 'https://fonts.googleapis.com/css?family=Open+Sans',
+        },
+    ],
     customColorSchemes: [
         [
             null,
             {
-                fill: '#e6d0de',
+                fill: '#E6D0DE',
                 gradient: 'none',
-                stroke: '#cda2be',
-                font: '#b5739d',
+                stroke: '#CDA2BE',
+                font: '#B5739D',
             },
             {
                 fill: '#d4e1f5',

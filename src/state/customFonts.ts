@@ -28,6 +28,9 @@ export const customFontsReducer: ConfigReducer<Array<CustomFont>, Action> = (sta
                 return i !== index;
             });
         }
+        case 'ADD_CUSTOM_FONT': {
+            return [...state, { name: 'Helvetica' }];
+        }
         default:
             return state;
     }

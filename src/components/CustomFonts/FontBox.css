@@ -1,14 +1,29 @@
 .FontBox {
     margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+}
+.FontBox--fields {
+    flex: 1 1 auto;
+    margin-right: 2rem;
+    background: rgb(245,245,245);
+    padding: 2rem;
+    border-radius: 0.5rem;
 }
 
-.Font-Box--field {
+.FontBox--font-display {
+    font-size: 3rem;
+    line-height: 3rem;
+    margin-bottom: 2rem;
+}
+
+.FontBox--field {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
 }
 
-.Font-Box--label {
+.FontBox--label {
     flex: 0 0 14rem;
     font-size: 1.75rem;
     line-height: 2rem;
@@ -17,4 +32,8 @@
 
 .FontBox--input--is-disabled {
     color: #999;
+}
+
+.FontBox--action {
+    flex: 0 0 auto;
 }

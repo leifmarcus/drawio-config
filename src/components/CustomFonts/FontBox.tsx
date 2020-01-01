@@ -2,11 +2,14 @@ import React, { useState, ChangeEventHandler, useEffect, useRef } from 'react';
 import './FontBox.css';
 import { CustomFont } from '../../state/types';
 import { Switch, SwitchChangeHandler } from '../Elements/Switch/Switch';
+import { Button } from '../Elements/Button';
 
 export type FontBoxChangeHandler = (font: CustomFont) => void;
+export type FontBoxDeleteHandler = () => void;
 
 type FontBoxProps = CustomFont & {
     onChange: FontBoxChangeHandler;
+    onDelete: FontBoxDeleteHandler;
 };
 
 const useUpdate = (
@@ -59,24 +62,36 @@ const useUpdate = (
     return [name, url, changeName, changeUrl, changeIsGoogleFont];
 };
 
-export const FontBox: React.FC<FontBoxProps> = ({ name, url, onChange }) => {
+export const FontBox: React.FC<FontBoxProps> = ({ name, url, onChange, onDelete }) => {
     const [cName, cUrl, changeName, changeUrl, changeIsGoogleFont] = useUpdate(name, url, onChange);
 
     const isGoogleFont = Boolean(cUrl && cUrl.includes('google'));
 
+    const fontStyle = {
+        fontFamily: `${cName},sans-serif`,
+    };
+
     return (
         <div className="FontBox">
-            <div className="Font-Box--field">
-                <label className="Font-Box--label">Font Name</label>
-                <input onChange={changeName} type="text" value={cName} />
+            <div className="FontBox--fields">
+                <h3 className="FontBox--font-display" style={fontStyle}>
+                    {cName}
+                </h3>
+                <div className="FontBox--field">
+                    <label className="FontBox--label">Font Name</label>
+                    <input onChange={changeName} type="text" value={cName} />
+                </div>
+                <div className="FontBox--field">
+                    <label className="FontBox--label">Font CSS url</label>
+                    <input onChange={changeUrl} type="text" value={cUrl || ''} className="FontBox--input" />
+                </div>
+                <div className="FontBox--field">
+                    <div className="FontBox--label">is Google Font?</div>
+                    <Switch value={isGoogleFont} onChange={changeIsGoogleFont} />
+                </div>
             </div>
-            <div className="Font-Box--field">
-                <label className="Font-Box--label">Font CSS url</label>
-                <input onChange={changeUrl} type="text" value={cUrl || ''} className="FontBox--input" />
-            </div>
-            <div className="Font-Box--field">
-                <div className="Font-Box--label">is Google Font?</div>
-                <Switch value={isGoogleFont} onChange={changeIsGoogleFont} />
+            <div className="FontBox--action">
+                <Button onClick={onDelete}>×</Button>
             </div>
         </div>
     );

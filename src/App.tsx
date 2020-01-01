@@ -1,4 +1,4 @@
-import React, { useReducer, Context, createContext, Dispatch, useEffect } from 'react';
+import React, { useReducer, Context, createContext, Dispatch, useEffect, useState } from 'react';
 import './App.css';
 import { Header } from './components/Elements/Header';
 import { configReducer, getInitialConfig } from './state';
@@ -8,6 +8,7 @@ import { Content } from './components/Elements/Content';
 import { ConfigOutput } from './components/ConfigOutput';
 import { CustomFonts } from './components/CustomFonts';
 import { CustomColorSchemes } from './components/CustomColorSchemes';
+import debounce from 'lodash/debounce';
 
 export const ConfigurationContext: Context<ConfigStore<AppState>> = createContext({
     getState: () => getInitialConfig(),
@@ -29,24 +30,51 @@ const useConfigStore: UseConfigStore<AppState> = () => {
     };
 };
 
+const MIN_NEEDED_WINDOW_WIDTH = 950;
+const useWindowSize = (): [number] => {
+    const [winWidth, setWidth] = useState(window.innerWidth);
+
+    const handleResize = debounce(() => {
+        setWidth(window.innerWidth);
+    }, 50);
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+
+        return (): void => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    return [winWidth];
+};
+
 const App: React.FC = () => {
     const configStore = useConfigStore();
+
+    const [winWidth] = useWindowSize();
 
     return (
         <ConfigurationContext.Provider value={configStore}>
             <div className="App">
                 <Header />
                 <Content>
-                    <div className="App--layout">
-                        <div className="App--main">
-                            <CustomColors />
-                            <CustomColorSchemes />
-                            <CustomFonts />
+                    {winWidth >= MIN_NEEDED_WINDOW_WIDTH && (
+                        <div className="App--layout">
+                            <div className="App--main">
+                                <CustomColors />
+                                <CustomColorSchemes />
+                                <CustomFonts />
+                            </div>
+                            <div className="App--side">
+                                <ConfigOutput />
+                            </div>
                         </div>
-                        <div className="App--side">
-                            <ConfigOutput />
-                        </div>
-                    </div>
+                    )}
+
+                    {winWidth < MIN_NEEDED_WINDOW_WIDTH && (
+                        <div className="App--small-hint">Screen is too small for the editor ;)</div>
+                    )}
                 </Content>
             </div>
         </ConfigurationContext.Provider>

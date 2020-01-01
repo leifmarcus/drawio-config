@@ -16,6 +16,11 @@
     width: 25%;
 }
 
+.App--small-hint {
+    font-size: 3rem;
+    line-height: 3rem;
+}
+
 @media screen and (max-width: 1280px) {
     .App--layout {
         flex-direction: row;

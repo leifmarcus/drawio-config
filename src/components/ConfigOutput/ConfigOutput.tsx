@@ -5,7 +5,7 @@ import './ConfigOutput.css';
 import { Box } from '../Elements/Box';
 import { ConfigurationContext } from '../../App';
 import { Button } from '../Elements/Button';
-import { convertToDrawIoConfig } from './helper';
+import { convertToDrawIoConfig, createDrawioLink } from './helper';
 import { Configuration } from '../../state/types';
 
 type Props = {};
@@ -83,6 +83,12 @@ export const ConfigOutput: React.FC<Props> = () => {
                 <Button onClick={handleCopyClick}>Copy To Clipboard</Button>
 
                 {isCopied && <div className="ConfigOutput--copy-hint">✔︎ Copied to clipboard</div>}
+
+                <div className="ConfigOutput--open-link">
+                    <a href={createDrawioLink(drawioConfig)} target="_blank" rel="noopener noreferrer">
+                        Open draw.io with this config
+                    </a>
+                </div>
             </Box>
             {drawioConfig.fontCss && <style type="text/css">{drawioConfig.fontCss}</style>}
         </div>

@@ -13,3 +13,8 @@
     margin-left: 1rem;
     font-size: 1.5rem;
 }
+
+.ConfigOutput--open-link {
+    font-size: 2rem;
+    margin-top: 2rem;
+}

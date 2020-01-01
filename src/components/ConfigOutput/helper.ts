@@ -1,4 +1,5 @@
 import { Configuration, CustomColorSchemes, AppState, CustomFont } from '../../state/types';
+import pako from 'pako';
 
 /**
  * gradient needs to be removed, otherwise the fill is not shown inside the
@@ -39,4 +40,12 @@ export const convertToDrawIoConfig = (config: AppState): Configuration => {
     };
 
     return convertedConfig;
+};
+
+export const createDrawioLink = (config: Configuration): string => {
+    const str = JSON.stringify(config);
+    const encoded = encodeURIComponent(str);
+    const binary = pako.deflate(encoded, { to: 'string', raw: true });
+
+    return `https://draw.io/#_CONFIG_${btoa(binary)}`;
 };

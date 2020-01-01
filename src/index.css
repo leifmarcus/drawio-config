@@ -24,6 +24,10 @@ h1,h2,h3,h4,h5 {
     font-weight: 300;
 }
 
+a, a:link {
+    color: inherit;
+}
+
 input[type=text] {
     font-size: 12px;
     overflow: hidden;

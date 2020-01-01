@@ -24,13 +24,13 @@ const convertCustomFonts = (fonts: Array<CustomFont>): Array<string> => {
 const generateFontCss = (fonts: Array<CustomFont>): string => {
     const families = fonts
         .filter(font => font.url?.includes('google'))
-        .map(font => font.name.replace(/\s/g, '+'))
+        .map(font => `${font.name.replace(/\s/g, '+')}:300,300i,400,400i,600,600i,700,700i,800,800i`)
         .join('|');
 
     return families ? `@import url('https://fonts.googleapis.com/css?family=${families}')` : '';
 };
 
-export const convertToDrawIoConfig = (config: AppState): string => {
+export const convertToDrawIoConfig = (config: AppState): Configuration => {
     const convertedConfig: Configuration = {
         ...config,
         customColorSchemes: convertCustomColorSchemes(config.customColorSchemes),
@@ -38,5 +38,5 @@ export const convertToDrawIoConfig = (config: AppState): string => {
         fontCss: generateFontCss(config.customFonts),
     };
 
-    return JSON.stringify(convertedConfig, null, 2);
+    return convertedConfig;
 };

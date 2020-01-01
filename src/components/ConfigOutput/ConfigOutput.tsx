@@ -6,17 +6,18 @@ import { Box } from '../Elements/Box';
 import { ConfigurationContext } from '../../App';
 import { Button } from '../Elements/Button';
 import { convertToDrawIoConfig } from './helper';
+import { Configuration } from '../../state/types';
 
 type Props = {};
 type CopyClickHandler = () => void;
 
-const useDrawioConfig = (): [string] => {
+const useDrawioConfig = (): [Configuration] => {
     const store = useContext(ConfigurationContext);
     const currState = store.getState();
 
-    const jsonString = convertToDrawIoConfig(currState);
+    const config = convertToDrawIoConfig(currState);
 
-    return [jsonString];
+    return [config];
 };
 
 const useClipboard = (codeRef: RefObject<HTMLDivElement>): [boolean, CopyClickHandler] => {
@@ -76,13 +77,14 @@ export const ConfigOutput: React.FC<Props> = () => {
                     style={github}
                     className="ConfigOutput--code-box"
                 >
-                    {drawioConfig}
+                    {JSON.stringify(drawioConfig, null, 2)}
                 </SyntaxHighlighter>
 
                 <Button onClick={handleCopyClick}>Copy To Clipboard</Button>
 
                 {isCopied && <div className="ConfigOutput--copy-hint">✔︎ Copied to clipboard</div>}
             </Box>
+            {drawioConfig.fontCss && <style type="text/css">{drawioConfig.fontCss}</style>}
         </div>
     );
 };

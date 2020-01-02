@@ -1,0 +1,14 @@
+.Information {
+    margin-top: 3rem;
+    font-size: 2rem;
+}
+
+.Information--content {
+    max-width: 75rem;
+}
+
+.Information--content p {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    margin-top: 2rem;
+}

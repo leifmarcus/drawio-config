@@ -9,6 +9,7 @@ import { ConfigOutput } from './components/ConfigOutput';
 import { CustomFonts } from './components/CustomFonts';
 import { CustomColorSchemes } from './components/CustomColorSchemes';
 import debounce from 'lodash/debounce';
+import { Information } from './components/Information/Information';
 
 export const ConfigurationContext: Context<ConfigStore<AppState>> = createContext({
     getState: () => getInitialConfig(),
@@ -60,16 +61,19 @@ const App: React.FC = () => {
                 <Header />
                 <Content>
                     {winWidth >= MIN_NEEDED_WINDOW_WIDTH && (
-                        <div className="App--layout">
-                            <div className="App--main">
-                                <CustomColors />
-                                <CustomColorSchemes />
-                                <CustomFonts />
+                        <>
+                            <div className="App--layout">
+                                <div className="App--main">
+                                    <CustomColors />
+                                    <CustomColorSchemes />
+                                    <CustomFonts />
+                                </div>
+                                <div className="App--side">
+                                    <ConfigOutput />
+                                </div>
                             </div>
-                            <div className="App--side">
-                                <ConfigOutput />
-                            </div>
-                        </div>
+                            <Information />
+                        </>
                     )}
 
                     {winWidth < MIN_NEEDED_WINDOW_WIDTH && (

@@ -11,9 +11,9 @@
 }
 
 .App--side {
-    flex: 0 0 25%;
+    flex: 0 1 25%;
     margin-left: 3rem;
-    width: 25%;
+    width: calc(25% - 3rem);
 }
 
 .App--small-hint {

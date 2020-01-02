@@ -91,7 +91,7 @@ export const FontBox: React.FC<FontBoxProps> = ({ name, url, onChange, onDelete 
                 </div>
             </div>
             <div className="FontBox--action">
-                <Button onClick={onDelete}>×</Button>
+                <span onClick={onDelete}>×</span>
             </div>
         </div>
     );

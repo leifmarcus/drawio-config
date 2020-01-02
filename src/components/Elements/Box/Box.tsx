@@ -1,15 +1,19 @@
 import React, { ReactNode } from 'react';
 import './Box.css';
 import { Headline } from '../Headline';
+import { joinClassNames } from '../../../utils/helpers';
 
 type Props = {
     title?: ReactNode;
     description?: ReactNode;
     footer?: ReactNode;
+    contentClassName?: string;
 };
 
-export const Box: React.FC<Props> = ({ children, title, footer, description }) => {
+export const Box: React.FC<Props> = ({ children, title, footer, description, contentClassName }) => {
     const showHead = !!title || !!description;
+
+    const contentClassNames = joinClassNames('Box--content', contentClassName);
 
     return (
         <div className="Box">
@@ -23,7 +27,7 @@ export const Box: React.FC<Props> = ({ children, title, footer, description }) =
                     {description && <div className="Box--description">{description}</div>}
                 </div>
             )}
-            <div className="Box--content">{children}</div>
+            <div className={contentClassNames}>{children}</div>
             <div className="Box--footer">{footer}</div>
         </div>
     );

@@ -1,8 +1,29 @@
-.CustomColorSchemes--delete {
-    font-size: 1.5rem;
+.CustomColorSchemes--actions {
+    font-size: 2rem;
     line-height: 2rem;
     text-align: right;
     cursor: pointer;
+    position: relative;
+}
+
+.CustomColorSchemes--delete {
+    position: absolute;
+    top: -2rem;
+    right: 0;
+    background-color: rgb(245,245,245);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+
+.CustomColorSchemes--delete:hover {
+    background-color: rgb(225,225,225);
+    color: #E00;
+}
+
+.CustomColorSchemes--delete:active {
+    color: inherit;
+    background-color: rgb(245,245,245);
 }
 
 .CustomColorSchemes--group {
@@ -11,7 +32,7 @@
     padding: 2rem 0 0 2rem;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .CustomColorSchemes--schema {

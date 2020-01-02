@@ -57,7 +57,7 @@ export const CustomFonts: React.FC<CustomFontsProps> = ({}) => {
             Custom Fonts will be shown inside the font selection dropdown in draw.io. If you want to use Google fonts,
             you need to make sure that the font will be loaded when working with draw.io. Your Font might be a custom
             font, that is defined in a CSS file on any server. In order to add a custom font, you need to specify the
-            url to a css file that defines the font.
+            url to a css file that defines the font. (draw.io 9.2.4 and later)
         </div>
     );
 

@@ -86,7 +86,7 @@ export const CustomColorSchemesComponent: React.FC<CustomColorSchemesProps> = ({
         <div>
             Color schemes will be shown in draw.io on the right top in the preset panel. Here you are able to configure
             custom presets. Presets can be organized in different slides. Click the color boxes next to the preview to
-            change the color. By clicking the label, the color get’s removed
+            change the color. By clicking the label, the color get’s removed. (draw.io 9.2.4 and later)
         </div>
     );
 
@@ -95,8 +95,14 @@ export const CustomColorSchemesComponent: React.FC<CustomColorSchemesProps> = ({
             <div className="CustomColorSchemes">
                 {colorSchemes.map((group, groupIndex) => {
                     return [
-                        <div key="delete" className="CustomColorSchemes--delete">
-                            <a onClick={deleteGroup(groupIndex)}>delete Slide</a>
+                        <div key="delete" className="CustomColorSchemes--actions">
+                            <a
+                                className="CustomColorSchemes--delete"
+                                title="Delete Slide"
+                                onClick={deleteGroup(groupIndex)}
+                            >
+                                ×
+                            </a>
                         </div>,
                         <div className="CustomColorSchemes--group" key={`group-${groupIndex}`}>
                             {group.map((colorSchema, schemaIndex) => {

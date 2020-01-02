@@ -1,11 +1,9 @@
 .FontBox {
     margin-bottom: 3rem;
-    display: flex;
-    align-items: center;
+    position: relative;
 }
 .FontBox--fields {
     flex: 1 1 auto;
-    margin-right: 2rem;
     background: rgb(245,245,245);
     padding: 2rem;
     border-radius: 0.5rem;
@@ -35,5 +33,21 @@
 }
 
 .FontBox--action {
-    flex: 0 0 auto;
+    position: absolute;
+    top: 0rem;
+    right: 1rem;
+}
+
+.FontBox--action span {
+    font-size: 2rem;
+    line-height: 3rem;
+    text-align:center;
+    width: 3rem;
+    height: 3rem;
+    user-select: none;
+    cursor: pointer;
+}
+
+.FontBox--action span:hover {
+    color: #E00;
 }

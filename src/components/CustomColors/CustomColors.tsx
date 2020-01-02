@@ -47,7 +47,7 @@ export const CustomColors: React.FC = () => {
     const description: ReactNode = (
         <div>
             The following colors will be shown in the color picker in draw.io. Click on a color box to set a new color
-            or click the trash bin to delete a color from the list.
+            or click the trash bin to delete a color from the list. (draw.io 9.2.5 and later)
         </div>
     );
 

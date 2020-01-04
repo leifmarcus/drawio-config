@@ -3,7 +3,7 @@ import get from 'lodash/get';
 
 export const defaultEdgeStyle: ConfigReducer<DefaultStyle, Action> = (state, action) => {
     const styleType = get(action, 'payload.type');
-    console.log(styleType);
+
     if (styleType !== 'Edge') {
         return state;
     }

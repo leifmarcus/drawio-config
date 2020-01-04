@@ -1,0 +1,10 @@
+.Field {
+    display: flex;
+    margin-bottom: 3rem;
+}
+.Field--label {
+    flex: 0 0 14rem;
+    font-size: 1.75rem;
+    line-height: 2rem;
+    margin-right: 1rem;
+}

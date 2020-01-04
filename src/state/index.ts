@@ -2,14 +2,16 @@ import { customPresetColorsReducer } from './customPresetColors';
 import { Action, ConfigReducer, AppState } from './types';
 import { customFontsReducer } from './customFonts';
 import { customColorSchemesReducer } from './customColorSchemes';
+import { defaultEdgeStyle } from './defaultEdgeStyle';
+import { defaultVertexStyle } from './defaultVertexStyle';
 
 export const configReducer: ConfigReducer<AppState, Action> = (state, action) => {
     return {
         customPresetColors: customPresetColorsReducer(state.customPresetColors, action),
         customFonts: customFontsReducer(state.customFonts, action),
         customColorSchemes: customColorSchemesReducer(state.customColorSchemes, action),
-        defaultVertexStyle: {},
-        defaultEdgeStyle: {},
+        defaultVertexStyle: defaultVertexStyle(state.defaultVertexStyle, action),
+        defaultEdgeStyle: defaultEdgeStyle(state.defaultEdgeStyle, action),
     };
 };
 
@@ -133,8 +135,26 @@ export const initialConfig: AppState = {
             },
         ],
     ],
-    defaultVertexStyle: {},
-    defaultEdgeStyle: {},
+    defaultVertexStyle: {
+        fontFamily: 'Segoe UI',
+        fontSize: '12',
+        strokeWidth: '1',
+        arcSize: '10',
+        absoluteArcSize: '1',
+        rounded: '1',
+        shadow: '0',
+        comic: '0',
+    },
+    defaultEdgeStyle: {
+        fontFamily: 'Segoe UI',
+        fontSize: '15',
+        strokeWidth: '1',
+        arcSize: '10',
+        absoluteArcSize: '1',
+        rounded: '1',
+        shadow: '0',
+        comic: '0',
+    },
 };
 
 export const getInitialConfig = (): AppState => {

@@ -1,13 +1,14 @@
 import { Dispatch } from 'react';
 
-type DefaultStyle = {
+export type DefaultStyle = {
+    [key: string]: undefined | string | number;
     absoluteArcSize?: string;
     arcSize?: string;
     fontFamily?: string;
-    fontSize?: number;
+    fontSize?: string;
     gradientDirection?: 'east' | 'north' | 'west' | 'south';
     rounded?: '0' | '1';
-    strokeWidth?: number;
+    strokeWidth?: string;
 };
 
 export type CustomColorSchema = {
@@ -34,6 +35,7 @@ export type Configuration = {
 };
 
 export type AppState = {
+    [index: string]: any;
     customFonts: Array<CustomFont>;
     customPresetColors: CustomPresetColors;
     defaultVertexStyle: DefaultStyle;
@@ -64,9 +66,21 @@ type UpdateCustomFont = CustomFont & {
     index: number;
 };
 
+type UpdateStylePayload = {
+    name: keyof DefaultStyle;
+    value: string;
+    type: 'Edge' | 'Vertex';
+};
+
 export type Action = {
     type: string;
-    payload?: UpdateColorPayload | DeleteColorPayload | UpdateColorSchema | DeleteSchemaGroup | UpdateCustomFont;
+    payload?:
+        | UpdateColorPayload
+        | DeleteColorPayload
+        | UpdateColorSchema
+        | DeleteSchemaGroup
+        | UpdateCustomFont
+        | UpdateStylePayload;
 };
 
 export type ConfigReducer<S, A> = (prevState: S, action: A) => S;

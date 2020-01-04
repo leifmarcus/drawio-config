@@ -10,6 +10,7 @@ import { CustomFonts } from './components/CustomFonts';
 import { CustomColorSchemes } from './components/CustomColorSchemes';
 import debounce from 'lodash/debounce';
 import { Information } from './components/Information/Information';
+import { DefaultStyle } from './components/DefaultStyle';
 
 export const ConfigurationContext: Context<ConfigStore<AppState>> = createContext({
     getState: () => getInitialConfig(),
@@ -67,6 +68,8 @@ const App: React.FC = () => {
                                     <CustomColors />
                                     <CustomColorSchemes />
                                     <CustomFonts />
+                                    <DefaultStyle type="Edge" />
+                                    <DefaultStyle type="Vertex" />
                                 </div>
                                 <div className="App--side">
                                     <ConfigOutput />

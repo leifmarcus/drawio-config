@@ -1,8 +1,8 @@
 import React from 'react';
-import './Information.css';
 import { Box } from '../Elements/Box';
+import './Information.css';
 
-type InformationProps = {};
+type InformationProps = any;
 
 export const Information: React.FC<InformationProps> = () => {
     return (

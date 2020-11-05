@@ -1,5 +1,5 @@
-import { CustomFont, Action, ConfigReducer } from './types';
 import get from 'lodash/get';
+import { Action, ConfigReducer, CustomFont } from './types';
 
 export const customFontsReducer: ConfigReducer<Array<CustomFont>, Action> = (state, action) => {
     switch (action.type) {

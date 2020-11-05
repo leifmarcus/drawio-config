@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
-import './Box.css';
-import { Headline } from '../Headline';
 import { joinClassNames } from '../../../utils/helpers';
+import { Headline } from '../Headline';
+import './Box.css';
 
 type Props = {
     title?: ReactNode;

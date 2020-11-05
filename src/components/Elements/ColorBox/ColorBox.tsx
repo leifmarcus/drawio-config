@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import './ColorBox.css';
+import React, { useEffect, useState } from 'react';
+import { ColorChangeHandler, SketchPicker } from 'react-color';
 import { joinClassNames } from '../../../utils/helpers';
-import { SketchPicker, ColorChangeHandler } from 'react-color';
+import './ColorBox.css';
 import { ColorBoxProps, OnChange } from './types';
 
 const useColorInput = (initialColor: string, onChange: OnChange): [string, ColorChangeHandler] => {

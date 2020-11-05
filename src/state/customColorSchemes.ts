@@ -1,6 +1,6 @@
-import { CustomColorSchemes, Action, ConfigReducer } from './types';
-import get from 'lodash/get';
 import cloneDeep from 'lodash/cloneDeep';
+import get from 'lodash/get';
+import { Action, ConfigReducer, CustomColorSchemes } from './types';
 
 const NEW_PRESET = { fill: 'none', font: '#000000', gradient: 'none', stroke: '#000000' };
 const RESET_PRESET = null;

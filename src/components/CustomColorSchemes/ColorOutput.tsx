@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import './ColorOutput.css';
-import { ColorBox } from '../Elements/ColorBox';
-import { CustomPresetColors, CustomColorSchema } from '../../state/types';
 import { ConfigurationContext } from '../../App';
+import { CustomColorSchema, CustomPresetColors } from '../../state/types';
+import { ColorBox } from '../Elements/ColorBox';
+import './ColorOutput.css';
 
 type ColorOutputProps = {
     type: keyof CustomColorSchema;
@@ -15,7 +15,7 @@ const useCustomColors = (): [CustomPresetColors] => {
     const store = useContext(ConfigurationContext);
     const state = store.getState();
 
-    return [state.customPresetColors.map(color => `#${color}`)];
+    return [state.customPresetColors.map((color) => `#${color}`)];
 };
 
 export const ColorOutput: React.FC<ColorOutputProps> = ({ type, color, onChange }) => {

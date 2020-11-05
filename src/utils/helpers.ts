@@ -6,7 +6,7 @@
 export const joinClassNames = (...args: Array<any>): string => {
     const classes: Array<string> = [];
 
-    args.forEach(arg => {
+    args.forEach((arg) => {
         if (!arg) return;
 
         const argType = typeof arg;

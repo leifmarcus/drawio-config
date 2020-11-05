@@ -1,12 +1,12 @@
-import React, { useContext, ReactNode } from 'react';
-import './CustomFonts.css';
-import { Box } from '../Elements/Box';
-import { CustomFont } from '../../state/types';
+import React, { ReactNode, useContext } from 'react';
 import { ConfigurationContext } from '../../App';
-import { FontBox } from './FontBox';
+import { CustomFont } from '../../state/types';
+import { Box } from '../Elements/Box';
 import { Button } from '../Elements/Button';
+import './CustomFonts.css';
+import { FontBox } from './FontBox';
 
-type CustomFontsProps = {};
+type CustomFontsProps = any;
 type UpdateFont = (index: number) => (font: CustomFont) => void;
 type DeleteFont = (index: number) => () => void;
 type AddFont = () => void;
@@ -15,7 +15,7 @@ const useCustomFonts = (): [Array<CustomFont>, UpdateFont, DeleteFont, AddFont] 
     const store = useContext(ConfigurationContext);
     const state = store.getState();
 
-    const updateFont: UpdateFont = index => (font: CustomFont): void => {
+    const updateFont: UpdateFont = (index) => (font: CustomFont): void => {
         store.dispatch({
             type: 'UPDATE_CUSTOM_FONT',
             payload: {
@@ -31,7 +31,7 @@ const useCustomFonts = (): [Array<CustomFont>, UpdateFont, DeleteFont, AddFont] 
         });
     };
 
-    const deleteFont: DeleteFont = index => (): void => {
+    const deleteFont: DeleteFont = (index) => (): void => {
         store.dispatch({
             type: 'DELETE_CUSTOM_FONT',
             payload: {
@@ -43,7 +43,7 @@ const useCustomFonts = (): [Array<CustomFont>, UpdateFont, DeleteFont, AddFont] 
     return [state.customFonts, updateFont, deleteFont, addFont];
 };
 
-export const CustomFonts: React.FC<CustomFontsProps> = ({}) => {
+export const CustomFonts: React.FC<CustomFontsProps> = () => {
     const [customFonts, updateFont, deleteFont, addFont] = useCustomFonts();
 
     const addNewFont: ReactNode = (

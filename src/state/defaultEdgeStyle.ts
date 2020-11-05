@@ -1,5 +1,5 @@
-import { Action, ConfigReducer, DefaultStyle } from './types';
 import get from 'lodash/get';
+import { Action, ConfigReducer, DefaultStyle } from './types';
 
 export const defaultEdgeStyle: ConfigReducer<DefaultStyle, Action> = (state, action) => {
     const styleType = get(action, 'payload.type');

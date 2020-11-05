@@ -1,9 +1,9 @@
-import { customPresetColorsReducer } from './customPresetColors';
-import { Action, ConfigReducer, AppState } from './types';
-import { customFontsReducer } from './customFonts';
 import { customColorSchemesReducer } from './customColorSchemes';
+import { customFontsReducer } from './customFonts';
+import { customPresetColorsReducer } from './customPresetColors';
 import { defaultEdgeStyle } from './defaultEdgeStyle';
 import { defaultVertexStyle } from './defaultVertexStyle';
+import { Action, AppState, ConfigReducer } from './types';
 
 export const configReducer: ConfigReducer<AppState, Action> = (state, action) => {
     return {

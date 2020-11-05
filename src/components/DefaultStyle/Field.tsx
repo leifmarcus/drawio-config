@@ -1,8 +1,8 @@
-import React, { useState, useEffect, ChangeEventHandler } from 'react';
-import './Field.css';
-import { FormFieldType } from './values';
+import React, { ChangeEventHandler, useEffect, useState } from 'react';
 import { Switch, SwitchChangeHandler } from '../Elements/Switch/Switch';
 import { UpdateStyleHandler } from './DefaultStyle';
+import './Field.css';
+import { FormFieldType } from './values';
 
 type FieldProps = {
     type: FormFieldType;
@@ -24,7 +24,7 @@ const useFieldUpdate = (
         setCurrValue(initialValue);
     }, [initialValue]);
 
-    const handleFieldChange: ChangeEventHandler<HTMLInputElement> = event => {
+    const handleFieldChange: ChangeEventHandler<HTMLInputElement> = (event) => {
         const updatedValue = event.target.value;
         if (type === 'number' && !Number.isNaN(Number(updatedValue))) {
             setCurrValue(updatedValue);
@@ -35,7 +35,7 @@ const useFieldUpdate = (
         }
     };
 
-    const handleSwitchChange: SwitchChangeHandler = value => {
+    const handleSwitchChange: SwitchChangeHandler = (value) => {
         const updatedValue = value ? '1' : '0';
         setCurrValue(updatedValue);
         onChange(name, updatedValue);

@@ -1,6 +1,6 @@
-import React, { FC, useState, ChangeEventHandler } from 'react';
-import './Switch.css';
+import React, { ChangeEventHandler, FC, useState } from 'react';
 import { joinClassNames } from '../../../utils/helpers';
+import './Switch.css';
 
 export type SwitchChangeHandler = (value: boolean) => void;
 

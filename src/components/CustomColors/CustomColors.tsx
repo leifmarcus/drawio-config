@@ -1,10 +1,10 @@
-import React, { useContext, ReactNode, MouseEventHandler } from 'react';
-import './CustomColors.css';
+import React, { MouseEventHandler, ReactNode, useContext } from 'react';
 import { ConfigurationContext } from '../../App';
 import { CustomPresetColors } from '../../state/types';
-import { ColorBox } from '../Elements/ColorBox';
 import { Box } from '../Elements/Box';
 import { Button } from '../Elements/Button';
+import { ColorBox } from '../Elements/ColorBox';
+import './CustomColors.css';
 
 type UpdateColor = (index: number) => (color: string) => void;
 type DeleteColor = (index: number) => () => void;
@@ -13,7 +13,7 @@ const useCustomColors = (): [CustomPresetColors, UpdateColor, DeleteColor] => {
     const store = useContext(ConfigurationContext);
     const state = store.getState();
 
-    const updateColor: UpdateColor = index => (color): void => {
+    const updateColor: UpdateColor = (index) => (color): void => {
         store.dispatch({
             type: 'UPDATE_CUSTOM_COLOR',
             payload: {
@@ -23,7 +23,7 @@ const useCustomColors = (): [CustomPresetColors, UpdateColor, DeleteColor] => {
         });
     };
 
-    const deleteColor: DeleteColor = index => (): void => {
+    const deleteColor: DeleteColor = (index) => (): void => {
         store.dispatch({
             type: 'DELETE_CUSTOM_COLOR',
             payload: {

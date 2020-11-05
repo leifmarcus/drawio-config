@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import './Schema.css';
-import { Preview } from './Preview';
-import { ColorOutput } from './ColorOutput';
+import React, { useEffect, useState } from 'react';
 import { CustomColorSchema } from '../../state/types';
+import { ColorOutput } from './ColorOutput';
+import { Preview } from './Preview';
+import './Schema.css';
 
 type SchemaProps = CustomColorSchema & {
     onChange: (schema: CustomColorSchema) => void;
@@ -12,7 +12,7 @@ type SchemaProps = CustomColorSchema & {
 type ChangeHandler = (type: keyof CustomColorSchema, color: string) => void;
 type DeleteHandler = () => void;
 
-const ResetSchema: React.FC<{}> = () => {
+const ResetSchema: React.FC<any> = () => {
     return (
         <div className="Schema Schema--reset">
             <div className="Schema--reset-title">

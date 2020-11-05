@@ -1,8 +1,7 @@
-import React, { useState, ChangeEventHandler, useEffect, useRef } from 'react';
-import './FontBox.css';
+import React, { ChangeEventHandler, useEffect, useRef, useState } from 'react';
 import { CustomFont } from '../../state/types';
 import { Switch, SwitchChangeHandler } from '../Elements/Switch/Switch';
-import { Button } from '../Elements/Button';
+import './FontBox.css';
 
 export type FontBoxChangeHandler = (font: CustomFont) => void;
 export type FontBoxDeleteHandler = () => void;
@@ -39,19 +38,19 @@ const useUpdate = (
         });
     }, [name, url]);
 
-    const changeName: ChangeEventHandler<HTMLInputElement> = event => {
+    const changeName: ChangeEventHandler<HTMLInputElement> = (event) => {
         const { value } = event.target;
 
         setName(value);
     };
 
-    const changeUrl: ChangeEventHandler<HTMLInputElement> = event => {
+    const changeUrl: ChangeEventHandler<HTMLInputElement> = (event) => {
         const { value } = event.target;
 
         setUrl(value);
     };
 
-    const changeIsGoogleFont: SwitchChangeHandler = value => {
+    const changeIsGoogleFont: SwitchChangeHandler = (value) => {
         if (!value) {
             setUrl('');
         } else {

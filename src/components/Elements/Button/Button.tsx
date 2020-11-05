@@ -1,6 +1,6 @@
 import React, { MouseEventHandler } from 'react';
-import './Button.css';
 import { joinClassNames } from '../../../utils/helpers';
+import './Button.css';
 
 type Props = {
     type?: 'primary' | 'default';

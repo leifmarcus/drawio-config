@@ -1,5 +1,5 @@
-import { CustomPresetColors, Action, ConfigReducer } from './types';
 import get from 'lodash/get';
+import { Action, ConfigReducer, CustomPresetColors } from './types';
 
 export const customPresetColorsReducer: ConfigReducer<CustomPresetColors, Action> = (state, action) => {
     switch (action.type) {

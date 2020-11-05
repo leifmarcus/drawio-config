@@ -1,11 +1,11 @@
-import React, { useContext, ReactNode } from 'react';
-import './DefaultStyle.css';
-import { Box } from '../Elements/Box';
+import startCase from 'lodash/startCase';
+import React, { ReactNode, useContext } from 'react';
 import { ConfigurationContext } from '../../App';
 import { DefaultStyle } from '../../state/types';
-import { formFields } from './values';
+import { Box } from '../Elements/Box';
+import './DefaultStyle.css';
 import { Field } from './Field';
-import startCase from 'lodash/startCase';
+import { formFields } from './values';
 
 type DefaultStyleProps = {
     type: 'Edge' | 'Vertex';

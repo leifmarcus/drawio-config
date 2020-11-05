@@ -1,14 +1,14 @@
-import React, { useContext, RefObject, useRef, useState } from 'react';
+import React, { RefObject, useContext, useRef, useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { github } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import './ConfigOutput.css';
-import { Box } from '../Elements/Box';
 import { ConfigurationContext } from '../../App';
-import { Button } from '../Elements/Button';
-import { convertToDrawIoConfig, createDrawioLink } from './helper';
 import { Configuration } from '../../state/types';
+import { Box } from '../Elements/Box';
+import { Button } from '../Elements/Button';
+import './ConfigOutput.css';
+import { convertToDrawIoConfig, createDrawioLink } from './helper';
 
-type Props = {};
+type Props = any;
 type CopyClickHandler = () => void;
 
 const useDrawioConfig = (): [Configuration] => {
@@ -38,7 +38,7 @@ const useClipboard = (codeRef: RefObject<HTMLDivElement>): [boolean, CopyClickHa
             if (document.execCommand('copy')) {
                 setIsCopied(true);
 
-                setTimeout(function() {
+                setTimeout(function () {
                     setIsCopied(false);
                 }, 1500);
             } else {

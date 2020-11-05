@@ -1,6 +1,6 @@
 import React from 'react';
-import './Headline.css';
 import { joinClassNames } from '../../../utils/helpers';
+import './Headline.css';
 
 type Props = {
     type: 'h1' | 'h2' | 'h3';

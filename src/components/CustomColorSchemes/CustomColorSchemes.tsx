@@ -1,12 +1,12 @@
-import React, { useContext, ReactNode } from 'react';
-import './CustomColorSchemes.css';
-import { Box } from '../Elements/Box';
-import { CustomColorSchemes, CustomColorSchema } from '../../state/types';
+import React, { ReactNode, useContext } from 'react';
 import { ConfigurationContext } from '../../App';
-import { Schema } from './Schema';
+import { CustomColorSchema, CustomColorSchemes } from '../../state/types';
+import { Box } from '../Elements/Box';
 import { Button } from '../Elements/Button';
+import './CustomColorSchemes.css';
+import { Schema } from './Schema';
 
-type CustomColorSchemesProps = {};
+type CustomColorSchemesProps = any;
 type UpdateColorSchema = (groupIndex: number, schemaIndex: number) => (schema: CustomColorSchema) => void;
 type DeleteColorSchema = (groupIndex: number, schemaIndex: number) => () => void;
 type DeleteSchemaGroup = (groupIndex: number) => () => void;
@@ -46,7 +46,7 @@ const useCustomColorSchemes = (): [
         });
     };
 
-    const deleteGroup: DeleteSchemaGroup = groupIndex => (): void => {
+    const deleteGroup: DeleteSchemaGroup = (groupIndex) => (): void => {
         store.dispatch({
             type: 'DELETE_SCHEMA_GROUP',
             payload: {
@@ -61,7 +61,7 @@ const useCustomColorSchemes = (): [
         });
     };
 
-    const addPreset: AddNewPreset = groupIndex => (): void => {
+    const addPreset: AddNewPreset = (groupIndex) => (): void => {
         store.dispatch({
             type: 'ADD_SCHEMA_PRESET',
             payload: {

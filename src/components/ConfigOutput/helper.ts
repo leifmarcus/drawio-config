@@ -3,7 +3,7 @@ import { AppState, Configuration, CustomColorSchemes, CustomFont } from '../../s
 
 /**
  * gradient needs to be removed, otherwise the fill is not shown inside the
- * preset panel. Seems to be a bug in draw.io
+ * preset panel. Seems to be a bug in diagrams.net
  */
 const convertCustomColorSchemes = (schemes: CustomColorSchemes): CustomColorSchemes => {
     return schemes.map((group) => {

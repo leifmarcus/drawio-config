@@ -6,7 +6,7 @@ export const Header: React.FC = () => {
 
     return (
         <div className="Header">
-            <img className="Header--logo" src="/drawio-config-logo.svg" alt="Draw.io Configuration Logo" />
+            <img className="Header--logo" src="/drawio-config-logo.svg" alt="diagrams.net Configuration Logo" />
             <h1>diagrams.net Configuration</h1>
         </div>
     );

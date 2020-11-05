@@ -12,7 +12,7 @@
 }
 
 .ColorBox--delete {
-    background: rgba(255,255,255,1) url(/icon-delete.svg) no-repeat;
+    background: rgba(255,255,255,1) url(../../../assets/images/icon-delete.svg) no-repeat;
     background-size: cover;
     font-size: 3rem;
     line-height: 3rem;
@@ -52,7 +52,7 @@
 }
 
 .ColorBox--color--isNone {
-    background: #ffffff url(/color-none.svg) no-repeat;
+    background: #ffffff url(../../../assets/images/color-none.svg) no-repeat;
     background-size: contain;
 }
 

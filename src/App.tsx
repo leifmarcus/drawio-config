@@ -1,16 +1,16 @@
-import React, { useReducer, Context, createContext, Dispatch, useEffect, useState } from 'react';
-import './App.css';
-import { Header } from './components/Elements/Header';
-import { configReducer, getInitialConfig } from './state';
-import { UseConfigStore, ConfigStore, Action, AppState } from './state/types';
-import { CustomColors } from './components/CustomColors';
-import { Content } from './components/Elements/Content';
-import { ConfigOutput } from './components/ConfigOutput';
-import { CustomFonts } from './components/CustomFonts';
-import { CustomColorSchemes } from './components/CustomColorSchemes';
 import debounce from 'lodash/debounce';
-import { Information } from './components/Information/Information';
+import React, { Context, createContext, Dispatch, useEffect, useReducer, useState } from 'react';
+import './App.css';
+import { ConfigOutput } from './components/ConfigOutput';
+import { CustomColors } from './components/CustomColors';
+import { CustomColorSchemes } from './components/CustomColorSchemes';
+import { CustomFonts } from './components/CustomFonts';
 import { DefaultStyle } from './components/DefaultStyle';
+import { Content } from './components/Elements/Content';
+import { Header } from './components/Elements/Header';
+import { Information } from './components/Information/Information';
+import { configReducer, getInitialConfig } from './state';
+import { Action, AppState, ConfigStore, UseConfigStore } from './state/types';
 
 export const ConfigurationContext: Context<ConfigStore<AppState>> = createContext({
     getState: () => getInitialConfig(),

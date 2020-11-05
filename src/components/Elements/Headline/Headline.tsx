@@ -7,14 +7,11 @@ type Props = {
     className: string;
 };
 
-export const Headline: React.FC<Props> = ({ type, children, className }) => {
-    // const store = useContext(ConfigurationContext);
-
-    return React.createElement(
+export const Headline: React.FC<Props> = ({ type, children, className }) =>
+    React.createElement(
         type,
         {
             className: joinClassNames('Headline', `Headline-${type}`, className),
         },
         children,
     );
-};

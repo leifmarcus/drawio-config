@@ -86,7 +86,7 @@ export const ConfigOutput: React.FC<Props> = () => {
 
                 <div className="ConfigOutput--open-link">
                     <a href={createDrawioLink(drawioConfig)} target="_blank" rel="noopener noreferrer">
-                        Open draw.io with this config
+                        Open app.diagrams.net with this config
                     </a>
                 </div>
             </Box>

@@ -2,7 +2,7 @@
     background-color: #fff;
     padding: 2rem;
     box-sizing: border-box;
-    border: 1px solid rgba(230,230,230);
+    border: 1px solid rgba(230, 230, 230);
     border-radius: 0.75rem;
     margin-top: 4rem;
 }
@@ -11,14 +11,14 @@
 }
 
 .Box--title {
-    margin: 0 0 0rem 0;
+    margin: 0 0 2rem 0;
 }
 
 .Box--description {
     font-size: 1.75rem;
     line-height: 2rem;
     margin-bottom: 2rem;
-    max-width: 75rem;
+    max-width: 90rem;
 }
 
 .Box--footer {

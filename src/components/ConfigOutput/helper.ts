@@ -47,5 +47,5 @@ export const createDrawioLink = (config: Configuration): string => {
     const encoded = encodeURIComponent(str);
     const binary = pako.deflate(encoded, { to: 'string', raw: true });
 
-    return `https://draw.io/#_CONFIG_${btoa(binary)}`;
+    return `https://app.diagrams.net//#_CONFIG_${btoa(binary)}`;
 };

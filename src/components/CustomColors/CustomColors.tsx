@@ -13,15 +13,17 @@ const useCustomColors = (): [CustomPresetColors, UpdateColor, DeleteColor] => {
     const store = useContext(ConfigurationContext);
     const state = store.getState();
 
-    const updateColor: UpdateColor = (index) => (color): void => {
-        store.dispatch({
-            type: 'UPDATE_CUSTOM_COLOR',
-            payload: {
-                index: index,
-                color: color,
-            },
-        });
-    };
+    const updateColor: UpdateColor =
+        (index) =>
+        (color): void => {
+            store.dispatch({
+                type: 'UPDATE_CUSTOM_COLOR',
+                payload: {
+                    index: index,
+                    color: color,
+                },
+            });
+        };
 
     const deleteColor: DeleteColor = (index) => (): void => {
         store.dispatch({

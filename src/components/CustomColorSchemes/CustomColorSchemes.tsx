@@ -24,16 +24,18 @@ const useCustomColorSchemes = (): [
     const store = useContext(ConfigurationContext);
     const state = store.getState();
 
-    const updateSchema: UpdateColorSchema = (groupIndex, schemaIndex) => (schema): void => {
-        store.dispatch({
-            type: 'UPDATE_CUSTOM_COLOR_SCHEMA',
-            payload: {
-                groupIndex,
-                schemaIndex,
-                schema,
-            },
-        });
-    };
+    const updateSchema: UpdateColorSchema =
+        (groupIndex, schemaIndex) =>
+        (schema): void => {
+            store.dispatch({
+                type: 'UPDATE_CUSTOM_COLOR_SCHEMA',
+                payload: {
+                    groupIndex,
+                    schemaIndex,
+                    schema,
+                },
+            });
+        };
 
     const deleteSchema: DeleteColorSchema = (groupIndex, schemaIndex) => (): void => {
         store.dispatch({

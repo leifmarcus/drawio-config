@@ -15,15 +15,17 @@ const useCustomFonts = (): [Array<CustomFont>, UpdateFont, DeleteFont, AddFont] 
     const store = useContext(ConfigurationContext);
     const state = store.getState();
 
-    const updateFont: UpdateFont = (index) => (font: CustomFont): void => {
-        store.dispatch({
-            type: 'UPDATE_CUSTOM_FONT',
-            payload: {
-                index,
-                ...font,
-            },
-        });
-    };
+    const updateFont: UpdateFont =
+        (index) =>
+        (font: CustomFont): void => {
+            store.dispatch({
+                type: 'UPDATE_CUSTOM_FONT',
+                payload: {
+                    index,
+                    ...font,
+                },
+            });
+        };
 
     const addFont: AddFont = (): void => {
         store.dispatch({
